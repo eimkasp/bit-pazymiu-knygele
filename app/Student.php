@@ -8,4 +8,8 @@ class Student extends Model
 {
     //
 	protected $table = 'students';
+
+	public function grades() {
+		return $this->hasMany('App\Grade', 'student_id', 'id');
+	}
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StudentRequest;
 use App\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class StudentController extends Controller
 {
@@ -61,6 +62,7 @@ class StudentController extends Controller
 
 
 		// isideti session flash message, apie sekminga isaugojia
+		Session::flash('status', 'Sekmingai sukurtas studentas');
 
 		return redirect()->route('students.index');
 
@@ -112,6 +114,9 @@ class StudentController extends Controller
 
 		$student->save();
 
+		// session flash zinute
+		$request->session()->flash('status', 'Sekmingai atnaujintas studentas');
+
 		return redirect()->route('students.show', $student->id);
     }
 
@@ -129,6 +134,9 @@ class StudentController extends Controller
 		$student->delete();
 
 		// session flash zinute
+		Session::flash('status', 'Sekmingai istrintas studentas');
+		Session::flash('alert-class', 'alert-danger');
+
 		return redirect()->route('students.index');
     }
 }

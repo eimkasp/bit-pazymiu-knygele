@@ -78,6 +78,19 @@
         </nav>
 
         <main class="py-4">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        @if(Session::has('status'))
+                            <p class="alert {{ Session::get('alert-class', 'alert-info') }}">
+                                {{ Session::get('status') }}
+                            </p>
+                        @endif
+                    </div>
+                </div>
+            </div>
+
             @yield('content')
         </main>
     </div>
