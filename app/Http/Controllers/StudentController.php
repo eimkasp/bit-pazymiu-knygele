@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StudentRequest;
 use App\Student;
 use Illuminate\Http\Request;
 
@@ -28,8 +29,8 @@ class StudentController extends Controller
     public function create()
     {
         //
-
-		return view('students.create');
+		$student = new Student();
+		return view('students.create', compact('student'));
     }
 
     /**
@@ -40,7 +41,13 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //turetume validuoti duomenis
+		//validuoti duomenis paprastuoju budu
+		 $request->validate([
+			'name' => 'required|max:255',
+			'surname' => 'required|max:255',
+			'email' => 'required|email',
+		]);
+
 		$student = new Student();
 
 		$student->name = $request->input('name');
@@ -80,7 +87,9 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        //
+		$student = Student::findOrFail($id);
+
+		return view('students.create', compact('student'));
     }
 
     /**
@@ -90,9 +99,20 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+	// validuoju duomenis teisingu budu, naudodamas atskira StudentRequest klase.
+	public function update(StudentRequest $request, $id)
     {
-        //
+
+		$student = Student::findOrFail($id);
+
+		$student->name = $request->input('name');
+		$student->surname = $request->input('surname');
+		$student->email = $request->input('email');
+		$student->phone = $request->input('phone');
+
+		$student->save();
+
+		return redirect()->route('students.show', $student->id);
     }
 
     /**

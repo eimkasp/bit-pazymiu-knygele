@@ -32,6 +32,10 @@
                             @csrf
                             <input type="submit" class="btn btn-danger" value="X" />
                         </form>
+                        <hr>
+                        <a href="{{ route('students.edit', $student->id) }}" class="btn btn-warning text-white">
+                            Redaguoti
+                        </a>
                     </div>
                 </div>
             </div>
