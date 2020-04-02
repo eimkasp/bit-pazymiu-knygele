@@ -14,6 +14,10 @@ class Grade extends Model
 		return $this->hasOne('App\Lecture', 'id' , 'lecture_id');
 	}
 
+	public function user() {
+		return $this->hasOne('App\User', 'id', 'user_id');
+	}
+
 	public function student() {
 		// aprasyti relationship
 	}

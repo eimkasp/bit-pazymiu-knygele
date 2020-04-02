@@ -22,7 +22,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('students', 'StudentController');
-Route::resource('grades', 'GradesController');
+Route::resource('grades', 'GradesController')->middleware('auth');
 Route::resource('lectures', 'LecturesController');
 
 //Route::get('/students/{id}/grade', 'StudentController@gradeCreate')->name('student.grade');

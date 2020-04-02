@@ -7,6 +7,7 @@ use App\Lecture;
 use App\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Auth;
 
 class GradesController extends Controller
 {
@@ -54,6 +55,10 @@ class GradesController extends Controller
 		$grade->student_id = $request->input('student_id');
 		$grade->lecture_id = $request->input('lecture_id');
 		$grade->grade = $request->input('grade');
+
+		// vartotojas kuris pridejo pazymi
+		// gauname prisijungusio vartotojo id
+		$grade->user_id = Auth::user()->id;
 
 		$grade->save();
 

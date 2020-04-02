@@ -12,18 +12,24 @@
                     <tr>
                         <th>Ivertinimas</th>
                         <th>Paskaita</th>
+                        <th>Destytojas</th>
                     </tr>
                     @foreach($student->grades as $grade)
+                        @if($grade->user_id === Auth::user()->id)
                         <tr>
                             <td>
                                 {{ $grade->grade }}
                             </td>
                             <td>
-                                <a href="#">
+                                <a href="{{ route('lectures.show', $grade->lecture->id) }}">
                                     {{ $grade->lecture->name }}
                                 </a>
                             </td>
+                            <td>
+                                {{  $grade->user->name }}
+                            </td>
                         </tr>
+                        @endif
                     @endforeach
                 </table>
 
