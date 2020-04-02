@@ -58,7 +58,7 @@
                             Redaguoti
                         </a>
 
-                        <a href="#" class="btn btn-success">
+                        <a href="{{ route('grades.create') }}" class="btn btn-success">
                             Prideti pazymi
                         </a>
                     </div>

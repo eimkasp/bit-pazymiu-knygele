@@ -10,15 +10,7 @@
                     <h1>Prideti studenta</h1>
                 @endisset
 
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
+                @include('components.errors-list')
 
                 @isset($student->id)
                     <form method="POST" action="{{ route('students.update', $student->id) }}">
