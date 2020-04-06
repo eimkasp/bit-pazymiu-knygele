@@ -93,6 +93,17 @@
 
             @yield('content')
         </main>
+
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        Cia bus footer.
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
 </body>
 </html>
