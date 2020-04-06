@@ -15,7 +15,6 @@ class UserSeeder extends Seeder
     public function run()
     {
         //
-
 		$user = new User();
 
 		$user->email = 'eimantas@kasperiunas.com';
@@ -33,15 +32,5 @@ class UserSeeder extends Seeder
 		$user->password = Hash::make('admin');
 
 		$user->save();
-
-		/*for($i = 0; $i < 10; $i++) {
-			$user = new User();
-
-			$user->email = Str::random(10).'@gmail.com';
-			$user->name = Str::random(10);
-			$user->password = Hash::make('secret123');
-
-			$user->save();
-		}*/
     }
 }
