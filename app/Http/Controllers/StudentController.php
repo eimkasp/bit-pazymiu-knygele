@@ -19,7 +19,9 @@ class StudentController extends Controller
         // gauname duomenis is duombazes/modelio
 		$students = Student::paginate(10);
 
-		return view('students.index', compact('students'));
+		$studentsCount = Student::count();
+
+		return view('students.index-new', compact('students', 'studentsCount'));
     }
 
     /**

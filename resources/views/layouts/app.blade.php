@@ -16,8 +16,8 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- Styles -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="{{ asset('css/theme.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -91,6 +91,65 @@
                 </div>
             </div>
 
+            <!-- HEADER -->
+            <div class="header">
+                <div class="container">
+                    <!-- Body -->
+                    <div class="header-body">
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+
+                                <!-- Avatar -->
+                                <div class="avatar avatar-lg avatar-4by3">
+                                    <img src="http://bit.lt/wp-content/themes/baltictalents/img/BIT_logo_desktop.svg" alt="..." class="avatar-img rounded">
+                                </div>
+
+                            </div>
+                            <div class="col ml-n3 ml-md-n2">
+
+                                <!-- Pretitle -->
+                                <h6 class="header-pretitle">
+                                    BIT
+                                </h6>
+
+                                <!-- Title -->
+                                <h1 class="header-title">
+                                    Pažymiu knygele
+                                </h1>
+
+                            </div>
+                            <div class="col-12 col-md-auto mt-3 mt-md-0">
+
+                            </div>
+                        </div> <!-- / .row -->
+                        <div class="row align-items-center">
+                            <div class="col">
+
+                                <!-- Nav -->
+                                <ul class="nav nav-tabs nav-overflow header-tabs">
+                                    <li class="nav-item">
+                                        <a href="{{ route('students.index') }}" class="nav-link active">
+                                            {{ __("Studentų sąrašas") }}
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('students.create') }}" class="nav-link">
+                                            {{ __("Pridėti studentą") }}
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('lectures.index') }}" class="nav-link">
+                                            {{ __("Paskaitos") }}
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div> <!-- / .header -->
             @yield('content')
         </main>
 

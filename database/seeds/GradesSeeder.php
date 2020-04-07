@@ -1,10 +1,9 @@
 <?php
 
-use App\Student;
+use App\Grade;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Str;
 
-class StudentSeeder extends Seeder
+class GradesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,7 +12,7 @@ class StudentSeeder extends Seeder
      */
     public function run()
     {
-        //
-		factory('App\Student', 400)->create();
-	}
+		factory('App\Grade', 1000)->create();
+
+    }
 }

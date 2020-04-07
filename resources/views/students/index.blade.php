@@ -10,6 +10,10 @@
                     @foreach($students as $student)
                         <tr>
                             <td>
+{{--                                <img src="{{ $student->photo }}" style="width: 50px; height: 50px; border-radius: 100%;"/>--}}
+
+                            </td>
+                            <td>
                                 <a href="{{ route('students.show', $student->id) }}">
                                     {{ $student->name }}
                                 </a>

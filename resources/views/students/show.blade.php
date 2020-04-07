@@ -4,6 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                <img src="{{ $student->photo }}" style="width: 200px; height: 200px; border-radius: 100%;"/>
                 <h1>Studentas: {{ $student->name }}  {{ $student->surname }}</h1>
 
                 <hr>

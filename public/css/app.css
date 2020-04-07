@@ -1,3 +1,4 @@
-body {
-    /*background: red;*/
+.avatar-img {
+    -o-object-fit: scale-down;
+    object-fit: scale-down;
 }
