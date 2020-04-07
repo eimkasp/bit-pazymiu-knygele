@@ -32,5 +32,7 @@ class UserSeeder extends Seeder
 		$user->password = Hash::make('admin');
 
 		$user->save();
+
+
     }
 }

@@ -158,7 +158,42 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-4">
-                        Cia bus footer.
+                        <div class="list-group list-group-flush list-group-activity my-n3">
+                            <div class="list-group-item">
+                                @for($i = 0; $i < 5; $i++)
+                                    <div class="row">
+                                    <div class="col-auto">
+
+                                        <!-- Avatar -->
+                                        <div class="avatar avatar-sm">
+                                            <div class="avatar-title font-size-lg bg-primary-soft rounded-circle text-primary">
+                                                <i class="fe fe-mail"></i>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col ml-n2">
+
+                                        <!-- Heading -->
+                                        <h5 class="mb-1">
+                                            Launchday 1.4.0 update email sent
+                                        </h5>
+
+                                        <!-- Text -->
+                                        <p class="small text-gray-700 mb-0">
+                                            Sent to all 1,851 subscribers over a 24 hour period
+                                        </p>
+
+                                        <!-- Time -->
+                                        <small class="text-muted">
+                                            2m ago
+                                        </small>
+
+                                    </div>
+                                </div> <!-- / .row -->
+                                @endfor
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

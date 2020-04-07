@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StudentRequest;
+use App\Lecture;
 use App\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -20,8 +21,10 @@ class StudentController extends Controller
 		$students = Student::paginate(10);
 
 		$studentsCount = Student::count();
+		$lecturesCount = Lecture::count();
+		$studentsPercentage =  Student::studentPercentage();
 
-		return view('students.index-new', compact('students', 'studentsCount'));
+		return view('students.index-new', compact('students', 'studentsCount', 'lecturesCount', 'studentsPercentage'));
     }
 
     /**

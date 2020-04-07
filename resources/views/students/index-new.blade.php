@@ -54,13 +54,13 @@
 
                                     <!-- Title -->
                                     <h6 class="text-uppercase text-muted mb-2">
-                                        Total Hours
+                                        {{ __("Paskaitos") }}
                                     </h6>
 
                                     <!-- Heading -->
                                     <span class="h2 mb-0">
-                      763.5
-                    </span>
+                                        {{ $lecturesCount }}
+                                    </span>
 
                                 </div>
                                 <div class="col-auto">
@@ -85,7 +85,7 @@
 
                                     <!-- Title -->
                                     <h6 class="text-uppercase text-muted mb-2">
-                                        Progress
+                                        Studentu
                                     </h6>
 
                                     <div class="row align-items-center no-gutters">
@@ -93,15 +93,15 @@
 
                                             <!-- Heading -->
                                             <span class="h2 mr-2 mb-0">
-                          84.5%
-                        </span>
+                                                {{ $studentsCount }} / 1000
+                                            </span>
 
                                         </div>
                                         <div class="col">
 
                                             <!-- Progress -->
                                             <div class="progress progress-sm">
-                                                <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar {{ $studentsPercentage['class'] }}" role="progressbar" style="width: {{ $studentsPercentage['value'] }}%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
 
                                         </div>
@@ -163,13 +163,13 @@
 
                             <!-- Title -->
                             <h4 class="card-header-title">
-                                Performance
+                                {{ __("Studentų sąrašas") }}
                             </h4>
 
 
                             <!-- Button -->
                             <a href="#!" class="btn btn-sm btn-white">
-                                Export
+                                Studentų valdymas
                             </a>
 
                         </div>
@@ -178,223 +178,48 @@
                                 <thead>
                                 <tr>
                                     <th>
-                                        Member
+                                        {{ __("Vardas") }}
                                     </th>
                                     <th>
-                                        Schedule
+                                        {{ __("Pažymių kiekis") }}
                                     </th>
                                     <th>
-                                        Hours Billed
+                                        {{ __("Pažymių vidurkis") }}
                                     </th>
                                     <th>
-                                        Completion
-                                    </th>
-                                    <th>
-                                        Effective Rate
+                                       {{ __("Registracijos data") }}
                                     </th>
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($students as $student)
                                 <tr>
                                     <td>
 
                                         <!-- Avatar -->
-                                        <a href="profile-posts.htmL" class="avatar avatar-xs d-inline-block mr-2">
-                                            <img src="assets/img/avatars/profiles/avatar-1.jpg" alt="..." class="avatar-img rounded-circle">
-                                        </a>
+                                       {{-- <a href="profile-posts.htmL" class="avatar avatar-xs d-inline-block mr-2">
+                                            <img src="{{ $student->image }}" alt="..." class="avatar-img rounded-circle">
+                                        </a>--}}
 
                                         <!-- Title -->
-                                        <span>Dianna Smiley</span>
-
-                                    </td>
-                                    <td>
-                                        <span class="text-success">●</span> On Schedule
-                                    </td>
-                                    <td>
-                                        271
-                                    </td>
-                                    <td>
-                                        <div class="row align-items-center no-gutters">
-                                            <div class="col-auto">
-
-                                                <!-- Value -->
-                                                <span class="mr-2">55%</span>
-
-                                            </div>
-                                            <div class="col">
-
-                                                <!-- Progress -->
-                                                <div class="progress progress-sm">
-                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-
-                                            </div>
-                                        </div> <!-- / .row -->
-                                    </td>
-                                    <td>
-                                        $55.25%
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <!-- Avatar -->
-                                        <a href="profile-posts.html" class="avatar avatar-xs d-inline-block mr-2">
-                                            <img src="assets/img/avatars/profiles/avatar-2.jpg" alt="..." class="avatar-img rounded-circle">
+                                        <a href="{{ route('students.show', $student->id) }}">
+                                            {{ $student->name }}
                                         </a>
 
-                                        <!-- Title -->
-                                        <span>Ab Hadley</span>
-
                                     </td>
                                     <td>
-                                        <span class="text-warning">●</span> Delayed
+
+                                       {{ $student->grades->count() }}
                                     </td>
                                     <td>
-                                        44
+
+                                       {{ $student->gradesAverage() }}
                                     </td>
                                     <td>
-                                        <div class="row align-items-center no-gutters">
-                                            <div class="col-auto">
-
-                                                <!-- Value -->
-                                                <span class="mr-2">25%</span>
-
-                                            </div>
-                                            <div class="col">
-
-                                                <!-- Progress -->
-                                                <div class="progress progress-sm">
-                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-
-                                            </div>
-                                        </div> <!-- / .row -->
-                                    </td>
-                                    <td>
-                                        $122.52%
+                                        {{ $student->created_at }}
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-
-                                        <!-- Avatar -->
-                                        <a href="profile-posts.html" class="avatar avatar-xs d-inline-block mr-2">
-                                            <img src="assets/img/avatars/profiles/avatar-3.jpg" alt="..." class="avatar-img rounded-circle">
-                                        </a>
-
-                                        <!-- Title -->
-                                        <span>Adolfo Hess</span>
-
-                                    </td>
-                                    <td>
-                                        <span class="text-success">●</span> On Schedule
-                                    </td>
-                                    <td>
-                                        271
-                                    </td>
-                                    <td>
-                                        <div class="row align-items-center no-gutters">
-                                            <div class="col-auto">
-
-                                                <!-- Value -->
-                                                <span class="mr-2">55%</span>
-
-                                            </div>
-                                            <div class="col">
-
-                                                <!-- Progress -->
-                                                <div class="progress progress-sm">
-                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-
-                                            </div>
-                                        </div> <!-- / .row -->
-                                    </td>
-                                    <td>
-                                        $55.25%
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <!-- Avatar -->
-                                        <a href="profile-posts.html" class="avatar avatar-xs d-inline-block mr-2">
-                                            <img src="assets/img/avatars/profiles/avatar-4.jpg" alt="..." class="avatar-img rounded-circle">
-                                        </a>
-
-                                        <!-- Title -->
-                                        <span>Daniela Dewitt</span>
-
-                                    </td>
-                                    <td>
-                                        <span class="text-warning">●</span> Delayed
-                                    </td>
-                                    <td>
-                                        44
-                                    </td>
-                                    <td>
-                                        <div class="row align-items-center no-gutters">
-                                            <div class="col-auto">
-
-                                                <!-- Value -->
-                                                <span class="mr-2">25%</span>
-
-                                            </div>
-                                            <div class="col">
-
-                                                <!-- Progress -->
-                                                <div class="progress progress-sm">
-                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-
-                                            </div>
-                                        </div> <!-- / .row -->
-                                    </td>
-                                    <td>
-                                        $122.52%
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <!-- Avatar -->
-                                        <a href="profile-posts.html" class="avatar avatar-xs d-inline-block mr-2">
-                                            <img src="assets/img/avatars/profiles/avatar-5.jpg" alt="..." class="avatar-img rounded-circle">
-                                        </a>
-
-                                        <!-- Title -->
-                                        <span>Miyah Myles</span>
-
-                                    </td>
-                                    <td>
-                                        <span class="text-success">●</span> On Schedule
-                                    </td>
-                                    <td>
-                                        271
-                                    </td>
-                                    <td>
-                                        <div class="row align-items-center no-gutters">
-                                            <div class="col-auto">
-
-                                                <!-- Value -->
-                                                <span class="mr-2">55%</span>
-
-                                            </div>
-                                            <div class="col">
-
-                                                <!-- Progress -->
-                                                <div class="progress progress-sm">
-                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-
-                                            </div>
-                                        </div> <!-- / .row -->
-                                    </td>
-                                    <td>
-                                        $55.25%
-                                    </td>
-                                </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

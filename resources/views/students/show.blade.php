@@ -16,7 +16,6 @@
                         <th>Destytojas</th>
                     </tr>
                     @foreach($student->grades as $grade)
-                        @if($grade->user_id === Auth::user()->id)
                         <tr>
                             <td>
                                 {{ $grade->grade }}
@@ -30,7 +29,6 @@
                                 {{  $grade->user->name }}
                             </td>
                         </tr>
-                        @endif
                     @endforeach
                 </table>
 
@@ -39,11 +37,100 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
+
+                        <!-- List group -->
+                        <div class="list-group list-group-flush my-n3">
+                            <div class="list-group-item">
+                                <div class="row align-items-center">
+                                    <div class="col">
+
+                                        <!-- Title -->
+                                        <h5 class="mb-0">
+                                            El.pastas
+                                        </h5>
+
+                                    </div>
+                                    <div class="col-auto">
+
+                                        <!-- Time -->
+                                        <time class="small text-muted" datetime="1988-10-24">
+                                            {{ $student->email }}
+                                        </time>
+
+                                    </div>
+                                </div> <!-- / .row -->
+                            </div>
+                            <div class="list-group-item">
+                                <div class="row align-items-center">
+                                    <div class="col">
+
+                                        <!-- Title -->
+                                        <h5 class="mb-0">
+                                            Registracijos data
+                                        </h5>
+
+                                    </div>
+                                    <div class="col-auto">
+
+                                        <!-- Time -->
+                                        <time class="small text-muted" datetime="2018-10-28">
+                                            {{ $student->created_at  }}
+                                        </time>
+
+                                    </div>
+                                </div> <!-- / .row -->
+                            </div>
+                            <div class="list-group-item">
+                                <div class="row align-items-center">
+                                    <div class="col">
+
+                                        <!-- Title -->
+                                        <h5 class="mb-0">
+                                            Location
+                                        </h5>
+
+                                    </div>
+                                    <div class="col-auto">
+
+                                        <!-- Text -->
+                                        <small class="text-muted">
+                                            Los Angeles, CA
+                                        </small>
+
+                                    </div>
+                                </div> <!-- / .row -->
+                            </div>
+                            <div class="list-group-item">
+                                <div class="row align-items-center">
+                                    <div class="col">
+
+                                        <!-- Title -->
+                                        <h5 class="mb-0">
+                                            Website
+                                        </h5>
+
+                                    </div>
+                                    <div class="col-auto">
+
+                                        <!-- Link -->
+                                        <a href="#!" class="small">
+                                            themes.getbootstrap.com
+                                        </a>
+
+                                    </div>
+                                </div> <!-- / .row -->
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
                         <h4>Studento informacija</h4>
 
                         <ul>
                             <li>
-                                El.pastas: {{ $student->email }}
+
                             </li>
                             <li>
                                 Telefonas: {{ $student->phone }}
