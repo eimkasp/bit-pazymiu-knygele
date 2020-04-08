@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Lecture;
 use Illuminate\Http\Request;
 
 class LecturesController extends Controller
@@ -14,6 +15,17 @@ class LecturesController extends Controller
     public function index()
     {
         //
+		$lectures = Lecture::all();
+
+		$lecturesData['labels'] = [];
+		$lecturesData['values'] = [];
+
+		foreach ($lectures as $lecture) {
+			$lecturesData['labels'][] = $lecture->name;
+			$lecturesData['values'][] = $lecture->grades->count();
+		}
+
+		return response()->json($lecturesData);
     }
 
     /**
@@ -34,7 +46,11 @@ class LecturesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+		$lectures = new Lecture();
+		$lectures->name = $request->input('name');
+		$lectures->description = $request->input('description');
+		$lectures->save();
+		return response()->json($lectures, 200);
     }
 
     /**
@@ -45,7 +61,8 @@ class LecturesController extends Controller
      */
     public function show($id)
     {
-        //
+		$lecture = Lecture::findOrFail($id);
+		return response()->json($lecture);
     }
 
     /**
@@ -80,5 +97,10 @@ class LecturesController extends Controller
     public function destroy($id)
     {
         //
+		$lecture = Lecture::find($id);
+
+		$lecture->delete();
+
+		return response()->json('success', 200);
     }
 }

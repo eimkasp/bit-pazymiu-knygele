@@ -14,20 +14,22 @@
                             <canvas id="canvas" style="display: block; width: 620px; height: 310px;" width="620" height="310"></canvas>
                             <script>
                                 window.onload = function() {
+                                    // !!! Sita dali perkela i public/app.js !!! //
 
-                                    var ctx = document.getElementById('canvas');
+
+                                    /*var ctx = document.getElementById('canvas');
                                     var myChart = new Chart(ctx, {
                                         type: 'bar',
                                         data: {
-                                            /* spausdindami situs duomenis turime naudoti unescaped/ nefiltruota duomenu atvaizdavima*/
-                                            labels: {!! json_encode($lecturesLabels) !!} ,
+                                            /!* spausdindami situs duomenis turime naudoti unescaped/ nefiltruota duomenu atvaizdavima*!/
+                                            labels: {{--{!! json_encode($lecturesLabels) !!} --}},
                                             datasets: [{
                                                 label: '# of Votes',
-                                                data: {!! json_encode($lectureGradesCount) !!},
+                                                data: {{--{!! json_encode($lectureGradesCount) !!}--}},
                                                 borderWidth: 10
                                             }]
                                         }
-                                    });
+                                    });*/
 
                                 }
                             </script>

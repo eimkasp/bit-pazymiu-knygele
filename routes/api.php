@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+// i show pasikreipti galima pvz: tookia nuoroda: http://127.0.0.1:8000/api/lectures/5
+Route::resource('lectures', 'LecturesController');
