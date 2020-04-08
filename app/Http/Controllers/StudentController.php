@@ -24,7 +24,18 @@ class StudentController extends Controller
 		$lecturesCount = Lecture::count();
 		$studentsPercentage =  Student::studentPercentage();
 
-		return view('students.index-new', compact('students', 'studentsCount', 'lecturesCount', 'studentsPercentage'));
+		$lectures = Lecture::all();
+
+		$lecturesLabels = [];
+		$lectureGradesCount = [];
+
+		foreach ($lectures as $lecture) {
+			$lecturesLabels[] = $lecture->name;
+			$lectureGradesCount[] = $lecture->grades->count();
+		}
+
+
+		return view('students.index-new', compact('students', 'studentsCount', 'lecturesCount', 'studentsPercentage','lecturesCount', 'lecturesLabels', 'lectureGradesCount'));
     }
 
     /**

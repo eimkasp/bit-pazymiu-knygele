@@ -8,6 +8,34 @@
         <!-- CONTENT -->
         <div class="container">
             <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <canvas id="canvas" style="display: block; width: 620px; height: 310px;" width="620" height="310"></canvas>
+                            <script>
+                                window.onload = function() {
+
+                                    var ctx = document.getElementById('canvas');
+                                    var myChart = new Chart(ctx, {
+                                        type: 'bar',
+                                        data: {
+                                            /* spausdindami situs duomenis turime naudoti unescaped/ nefiltruota duomenu atvaizdavima*/
+                                            labels: {!! json_encode($lecturesLabels) !!} ,
+                                            datasets: [{
+                                                label: '# of Votes',
+                                                data: {!! json_encode($lectureGradesCount) !!},
+                                                borderWidth: 10
+                                            }]
+                                        }
+                                    });
+
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-12 col-lg-6 col-xl">
 
                     <!-- Card -->
@@ -195,12 +223,6 @@
                                 @foreach($students as $student)
                                 <tr>
                                     <td>
-
-                                        <!-- Avatar -->
-                                       {{-- <a href="profile-posts.htmL" class="avatar avatar-xs d-inline-block mr-2">
-                                            <img src="{{ $student->image }}" alt="..." class="avatar-img rounded-circle">
-                                        </a>--}}
-
                                         <!-- Title -->
                                         <a href="{{ route('students.show', $student->id) }}">
                                             {{ $student->name }}
@@ -208,7 +230,6 @@
 
                                     </td>
                                     <td>
-
                                        {{ $student->grades->count() }}
                                     </td>
                                     <td>

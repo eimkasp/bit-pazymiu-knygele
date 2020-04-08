@@ -10,6 +10,6 @@ class Lecture extends Model
 	protected $table = 'lectures';
 
 	public function grades() {
-		// aprasyti relationship
+		return $this->hasMany('App\Grade', 'lecture_id', 'id');
 	}
 }

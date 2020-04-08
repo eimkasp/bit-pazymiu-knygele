@@ -9,16 +9,15 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
 
-    <link href="{{ asset('css/theme.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('styles/theme.css') }}" rel="stylesheet">
+    <link href="{{ asset('styles/app.css') }}" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script src="{{ asset('app.js') }}"></script>
 </head>
 <body>
     <div id="app">
@@ -197,7 +196,34 @@
                     </div>
                 </div>
             </div>
+
         </footer>
     </div>
+    <link rel="stylesheet" type="text/css"
+          href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function () {
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                        "background": "#000000"
+                    },
+                    "button": {
+                        "background": "#c4b257"
+                    }
+                },
+                "theme": "classic",
+                "content": {
+                    "message": "Informuojame, kad šioje svetainėje naudojami slapukai (ang.) cookies. Sutikdami, paspauskite mygtuką “Sutinku” arba naršykite toliau. Savo duotą sutikimą bet kada galėsite atšaukti pakeisdami savo interneto naršyklės nustatymus ir ištrindami įrašytus slapukus.",
+                    "href": "/privatumo-politika",
+                    "dismiss": "Sutinku",
+                    "link": "Daugiau informacijos"
+
+                }
+            })
+        });
+    </script>
+
 </body>
 </html>
